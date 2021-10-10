@@ -1,0 +1,13 @@
+<mat-form-field appearance="fill">
+  <mat-label>Character Name</mat-label>
+  <input type="text"
+         matInput
+         (keydown.enter)="emitSearchTerm()"
+         [formControl]="inputControl"
+         [matAutocomplete]="auto">
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayCharacter">
+    <mat-option (onSelectionChange)="selectCharacter($event)" *ngFor="let character of filteredOptions | async" [value]="character">
+      {{character.name}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

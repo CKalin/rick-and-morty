@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { SearchPageComponent } from './search.page.component';
 import { RouterModule, Routes } from '@angular/router';
-import { CharacterSearchService } from '@app/service/rick-and-morty-api/character-search.service';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { CharacterSearchModule } from '@app/components/character-search/character-search.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -16,10 +16,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
-    HttpClientModule
-  ],
-  providers: [
-    CharacterSearchService
+    CharacterSearchModule,
+    ReactiveFormsModule
   ],
   declarations: [SearchPageComponent],
   exports: [RouterModule],

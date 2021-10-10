@@ -3,12 +3,14 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Character } from '@app/model/character';
 import { environment } from '../../../environments/environment';
 import { SearchResult } from '@app/model/serach-result';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class CharacterSearchService {
 
   private url = environment.rickAndMortyApiBaseUrl + '/character';
+  private errorFallback: SearchResult<Character> = {info: {count: 0, pages: 0}, results: []};
 
   constructor(private http: HttpClient) {}
 
@@ -16,6 +18,7 @@ export class CharacterSearchService {
     const params = new HttpParams()
       .set('page', String(page))
       .set('name', name);
-    return this.http.get<SearchResult<Character>>(this.url, {params});
+    return this.http.get<SearchResult<Character>>(this.url, {params})
+      .pipe(catchError(_ => of(this.errorFallback)));
   }
 }

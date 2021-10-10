@@ -1,1 +1,2 @@
-{{result | async | json }}
+<app-character-search [formControl]="characterSelect" (onSearchTermChange)="search($event)"></app-character-search>
+<p>{{searchResults | async | json}}</p>
