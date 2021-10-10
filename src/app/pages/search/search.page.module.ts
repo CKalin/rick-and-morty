@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { CharacterSearchModule } from '@app/components/character-search/character-search.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CharacterCardModule } from '@app/components/character-display/character-card.module';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [
   {
@@ -16,10 +18,12 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(routes),
-    CommonModule,
     CharacterSearchModule,
     ReactiveFormsModule,
-    CharacterCardModule
+    CharacterCardModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    CommonModule
   ],
   declarations: [SearchPageComponent],
   exports: [RouterModule],

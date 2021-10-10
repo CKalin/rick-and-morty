@@ -9,7 +9,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  imports: [HttpClientModule, MatAutocompleteModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, CommonModule],
+  imports: [
+    HttpClientModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    CommonModule
+  ],
   providers: [CharacterSearchService],
   declarations: [CharacterSearchComponent],
   exports: [CharacterSearchComponent]

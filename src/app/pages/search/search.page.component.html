@@ -1,2 +1,8 @@
 <app-character-search [formControl]="characterSelect" (onSearchTermChange)="search($event)"></app-character-search>
-<app-character-card *ngFor="let character of searchResults | async" [character]="character"></app-character-card>
+<ng-container *ngIf="searchResult | async as result">
+<div class="search-results">
+  <app-character-card *ngFor="let character of result.results" [character]="character"></app-character-card>
+  <button *ngIf="result.info?.prev" mat-raised-button (click)="selectPage(selectedPage.value - 1)">Prev</button>
+  <button *ngIf="result.info?.next" mat-raised-button (click)="selectPage(selectedPage.value + 1)">Next</button>
+</div>
+</ng-container>

@@ -7,8 +7,9 @@ import { debounceTime, filter, map, startWith, switchMap } from 'rxjs/operators'
 import { MatOptionSelectionChange } from '@angular/material/core';
 
 @Component({
-  templateUrl: 'character-search.component.html',
   selector: 'app-character-search',
+  templateUrl: 'character-search.component.html',
+  styleUrls: ['character-search.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
