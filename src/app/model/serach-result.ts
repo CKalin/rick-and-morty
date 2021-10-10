@@ -6,6 +6,8 @@ export interface SearchResult<T> {
 export interface SearchResultInfo {
   count: number;
   pages: number;
+  page: number;
+  pageSize: number;
   next?: string;
   prev?: string;
 }

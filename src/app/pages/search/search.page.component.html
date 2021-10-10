@@ -2,7 +2,12 @@
 <ng-container *ngIf="searchResult | async as result">
 <div class="search-results">
   <app-character-card *ngFor="let character of result.results" [character]="character"></app-character-card>
-  <button *ngIf="result.info?.prev" mat-raised-button (click)="selectPage(selectedPage.value - 1)">Prev</button>
-  <button *ngIf="result.info?.next" mat-raised-button (click)="selectPage(selectedPage.value + 1)">Next</button>
+  <mat-paginator [length]="result.info.count"
+                 [pageSize]="result.info.pageSize"
+                 [pageIndex]="result.info.page"
+                 [hidePageSize]="true"
+                 [showFirstLastButtons]="true"
+                 (page)="selectPage($event.pageIndex)">
+  </mat-paginator>
 </div>
 </ng-container>
