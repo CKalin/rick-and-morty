@@ -22,7 +22,7 @@ export class CharacterSearchComponent implements ControlValueAccessor {
   @Output()
   onSearchTermChange = new EventEmitter<string>();
 
-  inputControl: FormControl = new FormControl();
+  inputControl: FormControl = new FormControl('');
   registeredOnChange: (character: Character) => void;
 
   filteredOptions: Observable<Array<Character>> = this.inputControl.valueChanges.pipe(

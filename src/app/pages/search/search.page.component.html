@@ -1,2 +1,2 @@
 <app-character-search [formControl]="characterSelect" (onSearchTermChange)="search($event)"></app-character-search>
-<p>{{searchResults | async | json}}</p>
+<app-character-card *ngFor="let character of searchResults | async" [character]="character"></app-character-card>
