@@ -21,7 +21,7 @@ import { MatOptionSelectionChange } from '@angular/material/core';
 export class CharacterSearchComponent implements ControlValueAccessor {
 
   @Output()
-  onSearchTermChange = new EventEmitter<string>();
+  searchTermChange = new EventEmitter<string>();
 
   inputControl: FormControl = new FormControl('');
   registeredOnChange: (character: Character) => void;
@@ -39,9 +39,9 @@ export class CharacterSearchComponent implements ControlValueAccessor {
 
   emitSearchTerm(): void {
     if (typeof this.inputControl.value === 'string') {
-      this.onSearchTermChange.emit(this.inputControl.value);
+      this.searchTermChange.emit(this.inputControl.value);
     } else {
-      this.onSearchTermChange.emit(null);
+      this.searchTermChange.emit(null);
     }
     this.registeredOnChange(null);
   }

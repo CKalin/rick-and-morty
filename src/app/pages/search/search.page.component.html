@@ -1,4 +1,4 @@
-<app-character-search [formControl]="characterSelect" (onSearchTermChange)="search($event)"></app-character-search>
+<app-character-search [formControl]="characterSelect" (searchTermChange)="search($event)"></app-character-search>
 <ng-container *ngIf="searchResult | async as result">
 <div class="search-results">
   <app-character-card *ngFor="let character of result.results" [character]="character"></app-character-card>

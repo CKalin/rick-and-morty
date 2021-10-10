@@ -6,7 +6,9 @@
          [formControl]="inputControl"
          [matAutocomplete]="auto">
   <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayCharacter">
-    <mat-option (onSelectionChange)="selectCharacter($event)" *ngFor="let character of filteredOptions | async" [value]="character">
+    <mat-option *ngFor="let character of filteredOptions | async"
+                (onSelectionChange)="selectCharacter($event)"
+                [value]="character">
       {{character.name}}
     </mat-option>
   </mat-autocomplete>
