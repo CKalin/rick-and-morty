@@ -41,7 +41,7 @@ export class CharacterSearchComponent implements ControlValueAccessor {
     if (typeof this.inputControl.value === 'string') {
       this.searchTermChange.emit(this.inputControl.value);
     } else {
-      this.searchTermChange.emit(null);
+      this.searchTermChange.emit(this.displayCharacter(this.inputControl.value));
     }
     this.registeredOnChange(null);
   }
